@@ -1,2 +1,3 @@
-# Glungus-Clicker
+# Glungus Clicker
 CLICK CLICK GLUNGUS
+I LOVE CLICKING GLUNGUS
