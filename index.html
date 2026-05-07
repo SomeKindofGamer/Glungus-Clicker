@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glungus Clicker!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-stars"></div>
+    <div class="bg-sun"></div>
+    <div class="bg-grass"></div>
+
+    <div id="game-container">
+        <header id="header">
+            <h1 class="bubbly-text">GLUNGUS CLICKER!</h1>
+            <h2 id="glungus-counter" class="counter-text">Glungus: 0</h2>
+            <div class="glungus-per-sec" id="glungus-per-sec">0 Glungus/sec</div>
+            <h3 id="glung-dust-counter" class="glung-dust-text" style="display: none;">Glung-Dust: 0</h3>
+            <div class="header-controls">
+                <button id="card-index-btn" class="header-btn" style="display: none;" onclick="toggleCardIndex()">🗂️ Card Index</button>
+                <button id="settings-open-btn" class="header-btn" onclick="toggleSettings()">⚙️ Settings</button>
+            </div>
+        </header>
+
+        <aside id="upgrades-panel" class="panel left-panel">
+            <h2 class="panel-title">Upgrades & Shenanigans</h2>
+            <div id="upgrades-list">
+            </div>
+            
+            <h2 class="panel-title prestige-title" id="prestige-title" style="display: none;">Glung Dust Upgrades</h2>
+            <div id="prestige-upgrades-list" style="display: none;">
+            </div>
+        </aside>
+
+        <main id="main-area">
+            <div id="glungus-container">
+                <img src="images/glungus.webp" alt="Glungus" id="glungus-btn" draggable="false">
+                <div id="sparkle-container"></div>
+            </div>
+        </main>
+
+        <div id="mobile-tabs" style="display: none;">
+            <button class="tab-btn active" id="tab-boop" onclick="switchTab('boop')">Boop</button>
+            <button class="tab-btn" id="tab-upgrades" onclick="switchTab('upgrades')">Upgrades</button>
+            <button class="tab-btn" id="tab-shenanigans" onclick="switchTab('shenanigans')">Shenanigans</button>
+        </div>
+
+        <aside id="shenanigans-panel" class="panel right-panel mobile-hidden">
+            <h2 class="panel-title">Shenanigans</h2>
+            
+            <div class="achievement-scroll-area">
+                <div id="achievement-list">
+                </div>
+            </div>
+
+            <div class="shenanigans-footer">
+                <div id="de-glungulator-container">
+                    <button id="de-glungulator-btn">THE DE-GLUNGULATOR</button>
+                    <div class="de-glungulator-info" id="prestige-info">
+                        Reset for 0 Glung-Dust
+                    </div>
+                </div>
+                
+                <div id="glung-lapse-container" style="display: none; margin-top: 10px;">
+                    <button id="glung-lapse-btn">TOTAL GLUNG-LAPSE</button>
+                    <div class="de-glungulator-info" id="glung-lapse-info">
+                        Requires 100B Total Glungus
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Settings</h2>
+            
+            <div class="setting-row">
+                <span>theme</span>
+                <button id="theme-toggle-btn" class="toggle-btn" onclick="toggleTheme()">daytime</button>
+            </div>
+
+            <div class="setting-row">
+                <span>glungus boing</span>
+                <button id="anim-toggle-btn" class="toggle-btn" onclick="toggleAnimations()">enabled</button>
+            </div>
+            
+            <div class="setting-row">
+                <span>popups</span>
+                <button id="popup-toggle-btn" class="toggle-btn" onclick="togglePopups()">enabled</button>
+            </div>
+            
+            <div class="setting-row">
+                <span>save stuff</span>
+                <div style="display: flex; gap: 10px;">
+                    <button class="action-btn" onclick="saveGame(); alert('Game Saved!')">save</button>
+                    <button class="action-btn danger" onclick="hardReset()">delete save</button>
+                </div>
+            </div>
+            
+            <button class="close-btn" onclick="toggleSettings()">close</button>
+        </div>
+    </div>
+
+    <div id="card-selection-modal" class="modal">
+        <div class="modal-content large-modal">
+            <h2 class="modal-title cosmic-text">Choose a Glung-Card</h2>
+            <p style="margin-bottom: 20px;">Your current existence has collapsed. Select a permanent power to carry into the next reality.</p>
+            <div id="card-options" class="card-grid">
+            </div>
+        </div>
+    </div>
+
+    <div id="card-index-modal" class="modal">
+        <div class="modal-content large-modal">
+            <h2 class="modal-title">Glung-Card Index</h2>
+            <div id="card-index-grid" class="card-grid index-grid">
+            </div>
+            <button class="close-btn" onclick="toggleCardIndex()">close</button>
+        </div>
+    </div>
+
+    <div id="flash-overlay"></div>
+
+    <script src="js/break_eternity.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
